@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Shopping Bag</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+      integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="resources/css/shopping-bag.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+  </head>
+  <body class="my-container">
+    <h1 class="py-4">YOUR SHOPPING BAG</h1>
+
+    <table class="table">
+      <thead>
+        <tr class="d-flex">
+          <th class="col-9">3 ITEMS</th>
+          <th class="col-1">SIZE</th>
+          <th class="col-1">QTY</th>
+          <th class="col-1">PRICE</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <script id="productList" type="text/x-handlebars-template">
+          {{#each products}}
+            <tr class="d-flex">
+              <td class="col-9">
+                <div class="row">
+                  <div class="col-4">
+                    <img
+                      class="img-fluid"
+                      src={{this.image}}
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-8 py-4">
+                    <div class="h4">{{this.name}}</div>
+                    <div>Style #: {{this.style}}</div>
+                    <div>Colour: {{this.color}}</div>
+                    <div class="button-container mt-4 pt-4">
+                      <div class="btn-container">
+                        <button type="button" class="btn btn-light">EDIT</button>
+                      </div>
+                      <div class="btn-container">
+                        <button type="button" class="btn btn-light">
+                          X REMOVE
+                        </button>
+                      </div>
+                      <div class="btn-container">
+                        <button type="button" class="btn btn-light">
+                          SAVE FOR LATER
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="col-1">{{this.size}}</td>
+              <td class="col-1">
+                <input
+                  type="text"
+                  maxlength="2"
+                  size="2"
+                  value={{qty}}
+                  pattern="[0-9]"
+                />
+              </td>
+              <td class="col-1"><sup>$</sup>{{this.price}}</td>
+            </tr>
+          {{/each}}
+        </script>
+        <script src="resources/js/shopping-bag.js"></script>
+      </tbody>
+    </table>
+    <hr class="bold pb-4 mb-4" />
+
+    <table class="table no-border pt-4 mt-4">
+      <tbody class="no-border">
+        <tr>
+          <td width="30%">
+            <div>
+              <b>Need help <br />or have questions ?</b>
+            </div>
+            <div class="pt-2">
+              Call Customer Service at <br />1-800-555-5555
+            </div>
+            <div class="pt-2">
+              <u>
+                Chat with one of our <br />
+                Stylists</u
+              >
+            </div>
+            <div class="pt-2">
+              <u>
+                See return <br />
+                & exchange policy</u
+              >
+            </div>
+          </td>
+          <td width="70%">
+            <table style="width:100%">
+              <tr class="no-border">
+                <td>
+                  ENTER PROMOTION CODE <br />
+                  OR GIFT CARD
+                </td>
+                <td class="text-right pr-4">
+                  <input type="text" name="promo_code" size="10" />
+                </td>
+                <td class="text-right pr-4">
+                  <button type="button" class="btn btn-outline-secondary">
+                    APPLY
+                  </button>
+                </td>
+              </tr>
+              <tr class="font-weight-bold">
+                <td colspan="2">SUBTOTAL</td>
+                <td class="text-right pr-4"><sup>$</sup>37.00</td>
+              </tr>
+              <tr class="no-border font-weight-bold">
+                <td colspan="2">PROMOTION CODE <b>JF10</b> APPLIED</td>
+                <td class="text-right pr-4"><sup>-$</sup>7.00</td>
+              </tr>
+              <tr class="no-border font-weight-bold ">
+                <td colspan="2">
+                  ESTIMATED SHIPPING<sup>*</sup><br />
+                  <span class="font-weight-normal h6"
+                    >You qualify for free shipping because your order is over
+                    $25<sup>*</sup></span
+                  >
+                </td>
+                <td class="text-right pr-4">FREE</td>
+              </tr>
+              <tr class="font-weight-bold h4">
+                <td colspan="2">
+                  ESTIMATED TOTAL <br />
+                  <span class="font-weight-normal h6"
+                    >Tax will be applied during checkout</span
+                  >
+                </td>
+                <td class="text-right pr-4"><sup>$</sup>30.00</td>
+              </tr>
+              <tr class="font-weight-bold">
+                <td colspan="2" class="text-right">
+                  <button type="button" class="btn btn-light">
+                    <u>CONTINUE SHOPPING</u>
+                  </button>
+                </td>
+                <td class="text-right pr-4">
+                  <button type="button" class="btn btn-primary">
+                    CHECKOUT
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3" class="text-right h6">
+                  <img
+                    class="img-fluid"
+                    src="resources/images/lock.JPG"
+                    alt=""
+                  />
+                  Secure checkout. Shopping is always safe and secure.
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

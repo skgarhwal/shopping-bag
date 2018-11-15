@@ -1,0 +1,28 @@
+.my-container {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+  margin: 20px;
+}
+
+.vr {
+  width: 1px;
+  height: 10px;
+}
+
+.button-container {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+}
+
+.btn-container:not(:last-child) {
+  border-right: 1px solid #ddd;
+}
+
+.bold {
+  border-top: 3px solid rgb(221, 220, 220);
+}
+
+.no-border {
+  border-top: hidden;
+}
